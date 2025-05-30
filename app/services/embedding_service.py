@@ -1,8 +1,14 @@
+"""
+Service module for generating and managing text embeddings.
+This module provides functionality to create embeddings from text using specified models,
+cache the results, and normalize the embedding vectors.
+"""
+
 from typing import List
 import hashlib
 import httpx
 import numpy as np
-from app.core.config import OLLAMA_API_BASE_URL
+from app.core.config.settings import OLLAMA_API_BASE_URL
 
 EMBED_CACHE = {}
 
@@ -34,7 +40,5 @@ def normalize_embedding(embedding: List[float]) -> List[float]:
     Normalize an embedding to have a unit norm.
     """
     vector = np.array(embedding)
-    normalized_vector = np.linalg.norm(vector)
-    return (
-        (vector / normalized_vector).tolist() if normalized_vector != 0 else embedding
-    )
+    norm = np.linalg.norm(vector)
+    return (vector / norm).tolist() if norm != 0 else embedding
