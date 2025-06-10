@@ -129,5 +129,4 @@ pytest --cov=vector_brain
 ## License
 
 Apache License 2.0
-=======
->>>>>>> parent of f662870 (added readme.md doc)
+
