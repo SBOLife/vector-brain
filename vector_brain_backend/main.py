@@ -4,8 +4,8 @@ This module initializes the FastAPI application and includes routers for the API
 """
 
 from fastapi import FastAPI
-from vector_brain.api.v1.endpoints import rag
-from vector_brain.db.session import Base, engine
+from vector_brain_backend.api.v1.endpoints import rag
+from vector_brain_backend.db.session import Base, engine
 
 Base.metadata.create_all(bind=engine)
 

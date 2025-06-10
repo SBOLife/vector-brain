@@ -6,7 +6,7 @@ corresponding vector embeddings using SQLAlchemy ORM.
 
 from sqlalchemy import Column, Integer, String
 from pgvector.sqlalchemy import Vector
-from vector_brain.db.session import Base
+from vector_brain_backend.db.session import Base
 
 
 class Embedding(Base):

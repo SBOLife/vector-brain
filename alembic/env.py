@@ -1,5 +1,5 @@
-from vector_brain.db.session import Base
-from vector_brain.core.config import settings
+from vector_brain_backend.db.session import Base
+from vector_brain_backend.core.config import settings
 from sqlalchemy import create_engine
 from alembic import context
 

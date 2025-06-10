@@ -3,7 +3,7 @@
 This module provides database session dependency injection for FastAPI routes.
 """
 
-from vector_brain.db.session import SessionLocal
+from vector_brain_backend.db.session import SessionLocal
 
 
 def get_db():

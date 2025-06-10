@@ -5,7 +5,7 @@ and similarity-based retrieval of text embeddings using SQLAlchemy ORM.
 """
 
 from sqlalchemy.orm import Session
-from vector_brain.models.embeddings import Embedding
+from vector_brain_backend.models.embeddings import Embedding
 
 
 def add_embedding(

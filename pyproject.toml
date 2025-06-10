@@ -44,14 +44,14 @@ dev = [
 ]
 
 [project.scripts]
-vector-brain = "vector_brain.cli:main"
+vector-brain = "vector_brain_backend.cli:main"
 
 [tool.poetry]
-packages = [{include = "vector_brain"}]
+packages = [{include = "vector_brain_backend"}]
 
 
 # [project.dynamic]
-# version = {attr = "vector_brain.__version__"}
+# version = {attr = "vector_brain_backend.__version__"}
 # readme = "README.md"  # Se for dinâmico
 
 [tool.black]
@@ -65,7 +65,7 @@ py_version = "311"
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
-addopts = "--cov=vector_brain --cov-report=term-missing"
+addopts = "--cov=vector_brain_backend --cov-report=term-missing"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

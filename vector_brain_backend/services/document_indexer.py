@@ -6,8 +6,8 @@ and storing their embedding vectors in a vector store database.
 """
 
 from sqlalchemy.orm import Session
-from vector_brain.services.rag_pipeline import generate_embedding
-from vector_brain.core.vector_store import add_embedding
+from vector_brain_backend.services.rag_pipeline import generate_embedding
+from vector_brain_backend.core.vector_store import add_embedding
 
 
 async def index_document(db: Session, content: str):

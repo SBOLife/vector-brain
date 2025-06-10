@@ -6,7 +6,7 @@ a RAG-based question answering system.
 
 import traceback
 import streamlit as st
-from vector_brain.services.langchain_pipeline import create_langchain_pipeline
+from vector_brain_backend.services.langchain_pipeline import create_langchain_pipeline
 
 
 st.set_page_config(page_title="VectorBrain Chat", page_icon="🧠")
