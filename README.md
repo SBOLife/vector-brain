@@ -1,17 +1,28 @@
-# VectorBrain - RAG System with FastAPI and Streamlit
+# VectorBrain - RAG System Documentation
+
+## Overview
+
+VectorBrain is a Retrieval-Augmented Generation (RAG) system that combines document retrieval with text generation capabilities. It provides both a FastAPI backend for API access and a Streamlit chat interface for interactive use.
 
 ![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)
 
-VectorBrain is a Retrieval-Augmented Generation (RAG) system that combines document retrieval with text generation capabilities, providing both a FastAPI backend and Streamlit chat interface.
+## Key Features
 
-## Features
+- **Document Processing**:
+  - Supports PDF, DOCX, and TXT file formats
+  - Automatic text extraction and vector embedding generation
+  - Semantic search capabilities
 
-- 📄 Document ingestion (PDF, DOCX, TXT)
-- 🔍 Semantic search using vector embeddings
-- 🤖 Local LLM integration via Ollama
-- 🚀 REST API and chat interface
-- 🐳 Dockerized deployment
-- 🧠 LangChain-powered RAG pipeline
+- **AI Integration**:
+  - Local LLM integration via Ollama
+  - LangChain-powered RAG pipeline
+  - Customizable prompt templates
+
+- **Technical Infrastructure**:
+  - PostgreSQL with pgvector for vector storage
+  - Dockerized deployment
+  - FastAPI backend with REST endpoints
+  - Streamlit frontend for chat interface
 
 ## System Architecture
 
@@ -24,7 +35,20 @@ graph TD
     D --> F[Response Generation]
 ```
 
-## Quick Start
+## Database Schema
+
+The system uses PostgreSQL with pgvector extension to store:
+
+```mermaid
+erDiagram
+    EMBEDDINGS {
+        int id PK
+        text content
+        vector(768) embedding
+    }
+```
+
+## Installation
 
 ### Prerequisites
 
@@ -32,7 +56,7 @@ graph TD
 - Python 3.11+ (for local development)
 - Ollama installed (for local LLM)
 
-### Running with Docker
+### Quick Start with Docker
 
 ```bash
 docker-compose up -d
@@ -88,7 +112,7 @@ curl -X POST "http://localhost:8000/api/v1/rag/upload" \
    uvicorn vector_brain_backend.main:app --reload
    
    # Streamlit
-   streamlit run streamlit_chat/app.py
+   streamlit run vector_brain_frontend/app.py
    ```
 
 ## Configuration
@@ -97,19 +121,6 @@ Create `.env` file:
 
 ```env
 DATABASE_URL=postgresql+psycopg2://postgres:postgres@localhost:5432/rag_db
-```
-
-## Database Schema
-
-The system uses PostgreSQL with pgvector extension to store:
-
-```mermaid
-erDiagram
-    EMBEDDINGS {
-        int id PK
-        text content
-        vector(768) embedding
-    }
 ```
 
 ## Services Overview
@@ -129,3 +140,10 @@ pytest --cov=vector_brain
 
 Apache License 2.0
 
+## Support
+
+For issues or questions, please open an issue in the GitHub repository.
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request with your changes.
